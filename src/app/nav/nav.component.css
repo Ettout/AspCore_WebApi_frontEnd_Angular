@@ -1,0 +1,14 @@
+.nav-tata:hover,.nav-link:focus{
+    text-decoration: none;
+    color: pink !important;
+}
+.nav-tata{
+    color: white !important;
+}
+.nav-marg{
+    margin-left: 80px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-expand-l bg-dark" >
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" >
+      <li class="nav-item active">
+        <a class="nav-tata nav-marg"  href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-tata nav-marg"  href="#">Link</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-tata nav-marg"  href="#">Produit</a>
+      </li>
+    </ul>
+    <form (ngSubmit)="login()" #loginForm="ngForm" class="form-inline my-2 my-lg-0">
+      <input name="username" required class="form-control mr-sm-2" type="text" [(ngModel)]="model.username" placeholder="user name" >
+      <input name="userpassword" required class="form-control mr-sm-2" type="password" [(ngModel)]="model.userpassword"  placeholder="password" >
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+    </form>
+  </div>
+</nav>
