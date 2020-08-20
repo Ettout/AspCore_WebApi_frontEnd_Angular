@@ -18,5 +18,7 @@ export class HomeComponent implements OnInit {
   registerToggel(){
     this.registerMode=true;
   }
-
+  register(){
+    this.registerMode=false;
+  }
 }
