@@ -12,10 +12,15 @@
         <a class="nav-tata nav-marg"  href="#">Produit</a>
       </li>
     </ul>
-    <form (ngSubmit)="login()" #loginForm="ngForm" class="form-inline my-2 my-lg-0">
-      <input name="username" required class="form-control mr-sm-2" type="text" [(ngModel)]="model.username" placeholder="user name" >
-      <input name="userpassword" required class="form-control mr-sm-2" type="password" [(ngModel)]="model.userpassword"  placeholder="password" >
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-    </form>
+    <div>
+      <form (ngSubmit)="login()" #loginForm="ngForm" *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0">
+        <input name="username" required class="form-control mr-sm-2" type="text" [(ngModel)]="model.name" placeholder="user name" >
+        <input name="userpassword" required class="form-control mr-sm-2" type="password" [(ngModel)]="model.password"  placeholder="password" >
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      </form>
+      <div>
+        <button (click)="logoutUser()" *ngIf="loggedIn()" class="btn btn-outline-success my-2 my-sm-0" >Logout</button> 
+      </div>
+    </div>
   </div>
 </nav>

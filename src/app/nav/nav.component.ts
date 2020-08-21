@@ -16,12 +16,24 @@ model:any={};
   }
 
   login(){
+    console.log(this.model);
+    
     this.authservice.login(this.model).subscribe(
       next=>{console.log("success");},
-      error=>{console.log("erreuuuur");
-      }
-      
-    )
+      error=>{console.log("erreuuuur"); })
+
+      console.log("the token is : "+this.loggedIn());
+
+  }
+  getToken() {
+    return localStorage.getItem('token')
+  }
+  loggedIn() {
+    return !!localStorage.getItem('token')    
+  }
+  logoutUser() {
+    console.log("the token is : "+this.loggedIn());
+    localStorage.removeItem('token')
   }
 
 }
