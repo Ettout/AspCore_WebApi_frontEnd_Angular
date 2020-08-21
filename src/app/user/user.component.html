@@ -1,10 +1,20 @@
 
-<div class="text-center">
-    <p>user works!</p>
-    <h1>why does not working ......</h1>
-</div>
 
+<table >
+    <tr >
+        <th >Nom</th>
+        <th >Prenom </th>
+        <th >Email</th>
+        <th >Tel</th>
+        <th >Password</th>
+    </tr>
+    <tr *ngFor="let user of users" >
+       <td >{{user.name}} </td>
+       <td >{{user.prename}}</td>
+       <td >{{user.emailAdress}}</td>
+       <td >{{user.tel}}</td>
+       <td >{{user.passWord}}</td>
 
-<div *ngFor="let user of users">
-    <li>{{'user name : '+user.name +'user password : '+user.passWord }}</li>
-</div>
+    </tr>
+</table>
+
