@@ -1,0 +1,41 @@
+<p>
+  register works!
+</p>
+
+<form (ngSubmit)="adduser()" #loginForm="ngForm"  style="margin-top:40px ;">
+ 
+  <div class="form-group row"  >
+    <label  class="col-sm-2 col-form-label">Nom</label>
+    <div class="col-sm-6" style="margin-left:10px ;">
+      <input name="usernome" type="text"  class="form-control" [(ngModel)]="user.username" placeholder="Nom">
+    </div>
+  </div>
+  <div class="form-group row"  >
+    <label  class="col-sm-2 col-form-label">Prenome</label>
+    <div class="col-sm-6" style="margin-left:10px ;">
+      <input name="userprenom" type="text"  class="form-control" [(ngModel)]="user.userprename" placeholder="Prenom">
+    </div>
+  </div>
+  <div class="form-group row"  >
+    <label  class="col-sm-2 col-form-label">Tel</label>
+    <div class="col-sm-6" style="margin-left:10px ;">
+      <input name="usertel" type="text"  class="form-control" [(ngModel)]="user.usertel" placeholder="Tel">
+    </div>
+  </div>
+  <div class="form-group row"  >
+    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-6" style="margin-left:10px ;">
+      <input name="useremail" type="text"  class="form-control" [(ngModel)]="user.useremail" placeholder="email@example.com">
+    </div>
+  </div>
+  <div class="form-group row" >
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-6" style="margin-left:10px ;">
+      <input  name="userpassword" type="password" class="form-control" [(ngModel)]="user.userpassword"placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group row">
+    <button class="btn btn-outline-success my-2 my-sm-0 col-sm-4" type="submit">s'inscrire</button>
+    <button (click)="cancelRegister()" class="btn btn-outline-success my-2 my-sm-0 col-sm-4" type="">cancel</button>
+  </div>
+</form>

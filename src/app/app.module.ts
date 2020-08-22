@@ -9,13 +9,17 @@ import { NavComponent } from './nav/nav.component';
 import {FormsModule} from "@angular/forms"
 import { AuthService } from './_services/auth.service'
 import { TokenInterceptorService } from './_services/token-interceptor.service'
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-  declarations: [	
+  declarations: [			
     AppComponent,
     UserComponent,
-      NavComponent
+      NavComponent,
+      RegisterComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
