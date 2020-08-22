@@ -1,0 +1,18 @@
+
+
+<table>
+  <thead>
+    <th>Category Name</th>
+    <th>Item Name</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let group of categories">
+      <td>{{group.name}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let item of group.items">{{item.name}}</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

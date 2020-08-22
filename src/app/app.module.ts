@@ -11,21 +11,29 @@ import { AuthService } from './_services/auth.service'
 import { TokenInterceptorService } from './_services/token-interceptor.service'
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { CategorisComponent } from './categoris/categoris.component';
 
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     UserComponent,
       NavComponent,
       RegisterComponent,
-      HomeComponent
+      HomeComponent,
+      CategorisComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path : 'users' ,component:UserComponent},
+      {path : 'categories' ,component:CategorisComponent},
+
+    ])
   ],
   providers: [AuthService, {
     provide: HTTP_INTERCEPTORS,
