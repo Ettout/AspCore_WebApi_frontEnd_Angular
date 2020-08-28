@@ -6,17 +6,17 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http"
 import { NavComponent } from './nav/nav.component';
-import {FormsModule} from "@angular/forms"
+import { ReactiveFormsModule, FormsModule} from "@angular/forms"
 import { AuthService } from './_services/auth.service'
 import { TokenInterceptorService } from './_services/token-interceptor.service'
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './_account/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { CategorisComponent } from './categoris/categoris.component';
 
 
 @NgModule({
-  declarations: [				
+  declarations: [
     AppComponent,
     UserComponent,
       NavComponent,
@@ -29,6 +29,7 @@ import { CategorisComponent } from './categoris/categoris.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [AuthService, {

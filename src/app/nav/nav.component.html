@@ -9,18 +9,22 @@
         <a class="nav-tata nav-marg"  [routerLink]="['users']">users</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-tata nav-marg"  [routerLink]="['categories']">categories</a>
+        <a class="nav-tata nav-marg"  [routerLink]="['register']">register</a>
       </li>
     </ul>
-    <div>
+    <div >
       <form (ngSubmit)="login()" #loginForm="ngForm" *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0">
         <input name="username" required class="form-control mr-sm-2" type="text" [(ngModel)]="model.name" placeholder="user name" >
         <input name="userpassword" required class="form-control mr-sm-2" type="password" [(ngModel)]="model.password"  placeholder="password" >
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Login</button>
+        <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" [routerLink]="['register']">sign in</button>
+
       </form>
       <div>
         <button (click)="logoutUser()" *ngIf="loggedIn()" class="btn btn-outline-success my-2 my-sm-0" >Logout</button> 
       </div>
+      
+      
     </div>
   </div>
 </nav>
