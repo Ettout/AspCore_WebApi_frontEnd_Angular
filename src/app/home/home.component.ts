@@ -15,11 +15,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerToggel(){
-    this.registerMode=true;
+  tokenValid(){
+    return !!localStorage.getItem('token');
   }
-  register(){
-    this.registerMode=false;
-  }
-
 }

@@ -8,32 +8,41 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-model:any={};
+  model: any = {};
 
-  constructor( private authservice:AuthService) { }
+  constructor(private authservice: AuthService) { }
 
   ngOnInit() {
   }
 
-  login(){
+  login() {
     console.log(this.model);
-    
-    this.authservice.login(this.model).subscribe(
-      next=>{console.log("success");},
-      error=>{console.log("erreuuuur"); })
 
-      console.log("the token is : "+this.loggedIn());
+    this.authservice.login(this.model).subscribe(
+      next => { console.log("success"); },
+      error => { console.log("erreuuuur"); })
+
+    console.log("the token is : " + this.loggedIn());
 
   }
   getToken() {
     return localStorage.getItem('token')
   }
+  getUserName() {
+    return localStorage.getItem('userName')
+  }
   loggedIn() {
-    return !!localStorage.getItem('token')    
+    return !!localStorage.getItem('token')
   }
   logoutUser() {
-    console.log("the token is : "+this.loggedIn());
+    console.log("the token is : " + this.loggedIn());
     localStorage.removeItem('token')
   }
-
-}
+  IsAdminAccount() {
+    var userRole = localStorage.getItem('UserRole');
+    if (userRole === 'Admin') {
+      return true;
+    }
+    return false;
+  }
+  }

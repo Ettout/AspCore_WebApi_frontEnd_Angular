@@ -13,16 +13,20 @@ import { RegisterComponent } from './_account/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { CategorisComponent } from './categoris/categoris.component';
+import {SignInHomeComponent} from './home/signInHome/signInHome.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     UserComponent,
-      NavComponent,
-      RegisterComponent,
-      HomeComponent,
-      CategorisComponent
+    NavComponent,
+    RegisterComponent,
+    HomeComponent,
+    CategorisComponent,
+    SignInHomeComponent,
+      ContactComponent
    ],
   imports: [
     BrowserModule,

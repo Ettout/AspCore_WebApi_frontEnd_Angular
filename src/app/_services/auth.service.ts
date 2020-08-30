@@ -26,12 +26,22 @@ login(model:any){
       if(jsonobject)
        {
          localStorage.setItem('token',jsonobject.token);
+         localStorage.setItem('UserRole',jsonobject.userRole);
+         localStorage.setItem('userName',model.name);
+
        }}))
      }
 
-     register(reg:RegisterModel): Observable<RegisterModel>{
+     register(reg:RegisterModel){
 
-      return this.http.post<RegisterModel>(this.urladduser,reg).pipe()
+      return this.http.post(this.urladduser,reg).pipe(map((response:any)=>
+      {
+       const jsonobject = response;
+       console.log("response");
+       if(jsonobject)
+        {
+          localStorage.setItem('token',jsonobject.token);
+        }}))
     }
 
 }

@@ -1,65 +1,92 @@
+<html>
 
-<form [formGroup]="userForm" (ngSubmit)="register()"  class="form-control-sm " style="margin-left:240px ;margin-top: 80px;">
+<body>
+    <div class="container">
+        <form [formGroup]="userForm" (ngSubmit)="register()" class="form-control-sm " style="margin-left:240px ;margin-top: 80px;">
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-8">
+                    <input name="usernome" class="col-8 " type="text" id="name" class="form-control" formControlName="name" placeholder="Nom">
+                    <div class="text-danger" *ngIf="!this.userForm.get('name').valid && this.userForm.get('name').touched">
+                        {{messageValidate.name.Required}}
+                    </div>
+                </div>
+            </div>
 
+            <div class="form-group row">
+                <label for="prename" class="col-sm-3 col-form-label">Prenome</label>
+                <div class="col-sm-8">
+                    <input type="text" id="prename" class="form-control" formControlName="prename" placeholder="Prenom">
+                    <div class="text-danger" *ngIf="!this.userForm.get('prename').valid && this.userForm.get('prename').touched">
+                        prename is required.
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group row">
-      <label  for="name" class="col-sm-3 col-form-label">Nom</label>
-      <div class="col-sm-8" >
-      <input name="usernome" class="col-8 "  type="text"  id="name" class="form-control" formControlName="name" placeholder="Nom">
-        <div class="text-danger" *ngIf="!this.userForm.get('name').valid && this.userForm.get('name').touched">
-           {{messageValidate.name.Required}}
-        </div>
-      </div>
-       </div>
+            <div class="form-group row">
+                <label for="tel" class="col-sm-3 col-form-label">Tel</label>
+                <div class="col-sm-8">
+                    <input type="text" id="tel" class="form-control" formControlName="tel" placeholder="tel">
+                    <div class="text-danger" *ngIf="!this.userForm.get('tel').valid && this.userForm.get('tel').touched">
+                        tel is required.
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-group row">
-      <label  for="prename" class="col-sm-3 col-form-label">Prenome</label>
-      <div class="col-sm-8" >
-      <input  type="text" id="prename" class="form-control" formControlName="prename" placeholder="Prenom">
+            <div class="form-group row">
+                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input type="text" id="email" class="form-control" formControlName="email" placeholder="Email">
+                    <div class="text-danger" *ngIf="!this.userForm.get('email').valid && this.userForm.get('email').touched">
+                        <div *ngIf="this.userForm.get('email').errors.required">
+                            {{messageValidate.email.Required}}
+                        </div>
+                        <div *ngIf="this.userForm.get('email').errors.email">
+                            {{messageValidate.email.isValid}}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-     <div class="text-danger" *ngIf="!this.userForm.get('prename').valid && this.userForm.get('prename').touched">
-      prename is required.
+            <div class="form-group row">
+                <label for="password" class="col-sm-3 col-form-label">password</label>
+                <div class="col-sm-8">
+                    <input type="password" id="password" class="form-control" formControlName="password" placeholder="password">
+                    <div class="text-danger" *ngIf="!this.userForm.get('password').valid && this.userForm.get('password').touched">
+                        <div *ngIf="this.userForm.get('password').errors.required">
+                            {{messageValidate.password.Required}}
+                        </div>
+                        <div *ngIf="this.userForm.get('password').errors.minlength">
+                            {{messageValidate.password.MinLenght}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="confirmedPassword" class="col-sm-3 col-form-label">confirm password</label>
+                <div class="col-sm-8">
+                    <input type="password" id="confirmedPassword" class="form-control" formControlName="confirmedPassword" placeholder="confirmed Password">
+                    <div class="text-danger" *ngIf="!this.userForm.get('confirmedPassword').valid && this.userForm.get('confirmedPassword').touched">
+                        <div *ngIf="this.userForm.get('confirmedPassword').errors.required">
+                            {{messageValidate.confirmedPassword.Required}}
+                        </div>
+                        <div *ngIf="this.userForm.get('confirmedPassword').errors.minlength">
+                            {{messageValidate.confirmedPassword.MinLenght}}
+                        </div>
+                    </div>
+                    <div class="text-danger" *ngIf="MotPassConfirm()">
+                        {{messageValidate.confirmedPassword.IsMatch}}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <button class="btn btn-outline-success my-2 my-sm-0 col-sm-5" [disabled]="userForm.invalid || MotPassConfirm()" type="submit">s'inscrire</button>
+                <button (click)="cancelRegister()" class="btn btn-outline-success my-2 my-sm-0 col-sm-5" type="" style="margin-left:40px ;">cancel</button>
+            </div>
+        </form>
     </div>
-  </div>
-    </div>
+</body>
 
-     <div class="form-group row">
-      <label  for="tel" class="col-sm-3 col-form-label">Tel</label>
-      <div class="col-sm-8" >
-      <input  type="text" id="tel" class="form-control" formControlName="tel" placeholder="tel">
-     <div class="text-danger" *ngIf="!this.userForm.get('tel').valid && this.userForm.get('tel').touched">
-      tel is required.
-  </div>
-     </div>
-    </div>
-
-     <div class="form-group row">
-      <label  for="email" class="col-sm-3 col-form-label">Email</label>
-      <div class="col-sm-8" >
-      <input  type="text" id="email" class="form-control" formControlName="email" placeholder="Email">
-     <div class="text-danger" *ngIf="!this.userForm.get('email').valid && this.userForm.get('email').touched">
-      email is required.
-  </div>
-     </div>
-    </div>
-
-     <div class="form-group row">
-      <label  for="password" class="col-sm-3 col-form-label">password</label>
-      <div class="col-sm-8" >
-      <input  type="password" id="password" class="form-control" formControlName="password" placeholder="password">
-     <div class="text-danger" *ngIf="!this.userForm.get('password').valid && this.userForm.get('password').touched">
-      <div *ngIf="this.userForm.get('password').errors.required">
-                 {{messageValidate.password.Required}}
-      </div>
-      <div *ngIf="this.userForm.get('password').errors.minlength">
-        {{messageValidate.password.MinLenght}}
-      </div>
-  </div>
-     </div>
-    </div>
-
-  <div class="form-group row">
-    <button class="btn btn-outline-success my-2 my-sm-0 col-sm-5" [disabled]="userForm.invalid" type="submit">s'inscrire</button>
-    <button (click)="cancelRegister()" class="btn btn-outline-success my-2 my-sm-0 col-sm-5" type="" style="margin-left:40px ;">cancel</button>
-  </div>
-</form>
+</html>
